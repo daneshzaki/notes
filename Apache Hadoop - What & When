@@ -1,0 +1,17 @@
+Basic notes on what is Apache Hadoop and when to use it
+
+    Data is written raw
+
+    No table/schema required
+
+    During read Ser/De reads and formats data accordingly
+
+    No new columns need to be added to load new data
+
+    Data is stored in chunks of 64 MB (default) across servers (default 3 chunks/server)
+
+    MapReduce is a scheduler used by Hadoop that splits a task into multiple smaller ones
+
+    Usage choices: Relational db is used when there is need for interactive analytics, ACID, SQL stds compliance
+
+    Usage choices: Hadoop is used for large volumes of data both structured and unstructured.
