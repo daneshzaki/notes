@@ -1,0 +1,31 @@
+Notes from a developer detailing the building of an Android app
+
+I developed an app for storing the list of things that I have purchased/received, to act as a personal inventory. I thought hard for a fancy name but ended up with calling it Thingse with an 'e' at the end.
+
+The app's architecture does not strictly follow a MVC approach and looks more closer to the classic client-server architecture. XML based UI is supposed to be the View but due to certain limitations, the Java code is used for places where UI controls are generated dynamically. This blurs the difference between the layers. The model is represented by a SQL adapter class that interacts with the SQLite database.
+
+Event handling is done in Java. The handler method name can be set in the attribute of the UI control in layout XML. E.g. android:onClick=handleClick will inform the VM to call the handleClick method in the activity class when the click event happens.
+
+Preferences are used to store the value selected by the user for Currency. This is used in all the screens to display the currency. Preferences are displayed as a Settings screen by Android; very little coding is required to build or display this screen.
+
+DatePicker is used to enable the user to select the date purchased/received while creating a new entry. Its a simple class that extends from Dialog and calls the method onDateSet when the user selects a date.
+
+Bundle is a very useful hashtable-like class to pass information across screens. Objects that need to be shared have to be put in the bundle object with a key and can be set in the Intent that calls the other screen/activity through startActivity.
+
+The camera app is called to take a picture of the object whose entry is being created. Two methods do this: startActivityForResult to call the camera app
+
+onActivityResult to handle the result from the camera
+
+This was a very troublesome piece of the app as the camera implementation supposedly varies across Android devices. Many times, the call to the camera would return a Null pointer exception without a clear message. Sometimes, there would be a low memory error and most of the time, the call would just not return and stay with the camera app after the picture was taken.
+
+The gallery app is called when the user wants to choose an existing picture to attach to a new entry of an object. As with the camera app call, the following methods are utilized.
+
+startActivityForResult to call the gallery app
+
+onActivityResult to handle the result from the gallery
+
+Unlike the camera app, the call and return from the gallery app worked flawlessly.
+
+Since this is developed for Android v 2.3 which does not have the ActionBar, ActionBarSherlock, a third party, open source Action Bar component is used. The usage is straight forward and now the app seems to be in accordance with the Android design principles.
+
+The app took about half a month's efforts with a lot of help from StackOverflow. There are still bugs/"Force Closes" with the camera app. When those are fully resolved, the app should become available freely on the net and maybe on Google Play too.
