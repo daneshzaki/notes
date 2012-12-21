@@ -12,7 +12,7 @@ DatePicker is used to enable the user to select the date purchased/received whil
 
 Bundle is a very useful hashtable-like class to pass information across screens. Objects that need to be shared have to be put in the bundle object with a key and can be set in the Intent that calls the other screen/activity through startActivity.
 
-The camera app is called to take a picture of the object whose entry is being created. Two methods do this: startActivityForResult to call the camera app
+The camera app is called to take a picture of the object whose entry is being created. Two methods do this: startActivityForResult to call the camera app.
 
 onActivityResult to handle the result from the camera
 
