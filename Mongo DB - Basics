@@ -1,0 +1,27 @@
+MongoDB is a schemaless NoSQL database
+
+It does not use SQL
+
+Data is stored as JSON objects in collections
+
+Internally uses JavaScript
+
+Common commands are:
+
+      CREATE: No tables to be created as data is stored in collections
+
+      INSERT: db.coll.save(JSON obj to save)
+
+      SELECT: db.coll.find() for all entries db.coll.find(search criteria) for specific entries
+
+      UPDATE: db.coll.update( <query>, $set/unset <fields to update>)
+
+      DELETE: db.coll.remove(search criteria) for specific entries db.coll.remove() for all entries
+
+db.coll.ensureIndex(value) creates and index for the collection
+
+db.coll.find().sort(criteria) sorts the result by the criteria
+
+mongod runs the database
+
+mongo runs the interactive shell
